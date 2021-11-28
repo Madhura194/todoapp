@@ -1,62 +1,72 @@
 package com.app.todo.dao.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.util.Date;
 
-@Entity
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Task {
-	
 	@Id
 	String id;
-	String taskName;
-	String taskDescription;
-	String targetCompletionDate;
-	Boolean isCompleted;
+	String name;
+	String description;
+	Date creationTime;
+	Date updationTime;
+	String targetDate;
+	String targetTime;
+	String status;
 	
-	@ManyToOne
-	@JoinColumn(name="user")
-	User user;
-	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getTaskName() {
-		return taskName;
+	public String getName() {
+		return name;
 	}
-	public void setTaskName(String taskName) {
-		this.taskName = taskName;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getTaskDescription() {
-		return taskDescription;
+	public String getDescription() {
+		return description;
 	}
-	public void setTaskDescription(String taskDescription) {
-		this.taskDescription = taskDescription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public String getTargetCompletionDate() {
-		return targetCompletionDate;
+	public Date getCreationTime() {
+		return creationTime;
 	}
-	public void setTargetCompletionDate(String targetCompletionDate) {
-		this.targetCompletionDate = targetCompletionDate;
+	public void setCreationTime(Date creationTime) {
+		this.creationTime = creationTime;
 	}
-	public Boolean getIsCompleted() {
-		return isCompleted;
+	public Date getUpdationTime() {
+		return updationTime;
 	}
-	public void setIsCompleted(Boolean isCompleted) {
-		this.isCompleted = isCompleted;
+	public void setUpdationTime(Date updationTime) {
+		this.updationTime = updationTime;
+	}
+	
+	public String getTargetTime() {
+		return targetTime;
+	}
+	public void setTargetTime(String targetTime) {
+		this.targetTime = targetTime;
+	}
+	public void setTargetDate(String targetDate) {
+		this.targetDate = targetDate;
+	}
+	
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	
 	
-
+	
 }
